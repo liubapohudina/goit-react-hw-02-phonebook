@@ -1,9 +1,10 @@
 import React from "react";
+import styles from './form.module.css'
 
 
-const Button = ({text, type}) => {
+const Button = ({text, type, onClickSubmit}) => {
     return (
-        <><button type={type}>{text}</button></>
+        <><button className={styles.btn} onSubmit={onClickSubmit} type={type}>{text}</button></>
     )
 }
 
