@@ -9,17 +9,23 @@ import ContactList from "./Form/ContacsList";
 
 
 export class App extends Component {
-state = {
-  contacts: [
-    { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
-],
-  // name: '',
-  // number: '',
-  filter: '',
+  state = {
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    // name: '',
+    // number: '',
+    filter: '',
   }
+
+  
+  // checkContacts = (name) => {
+  //   return this.state.contacts.findIndex(el => el.name === name);
+  // }
+
   
   
 
@@ -28,24 +34,35 @@ state = {
     // return this.setState({
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
-    //console.log(name)
+    //console.log(name.name)
     // name: event.currentTarget.value,})
   }
 
   onClickSubmit = (event) => {
-    //console.log(event.currentTarget)
+    //console.log(event.target)
     event.preventDefault(); 
+
+    const { name } = this.state;
+    const isExist = this.state.contacts.findIndex(el => el.name === name);
+    console.log(isExist)
+
+    if (isExist >= 0) {
+      alert(`Contact ${name} already exists!`);
+      return;
+    }
+
+
     this.setState({
       contacts: [
         ...this.state.contacts,
         {
-          // number: this.state.number,
-          // name: this.state.name,
+          number: this.state.number,
+          name: this.state.name,
           id: nanoid(),
         }
       ],
-      // name: '',
-      // number: ''
+      name: '',
+      number: ''
     });
     event.currentTarget.reset()
   }
