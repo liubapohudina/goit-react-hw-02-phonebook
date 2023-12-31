@@ -29,3 +29,9 @@ input, button {
     gap: 10px;
     max-width: 210px;
 }
+.listContacts {
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    gap: 8px;
+}

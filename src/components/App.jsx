@@ -62,6 +62,21 @@ export class App extends Component {
     });
     event.currentTarget.reset()
   }
+  
+  handleClickDelete = (event) => {
+    const selectContact = event.currentTarget.id
+    //console.log(selectContact)
+    /*----------use method slice----------------*/
+    // const updateContactAfterDelete = this.state.contacts.splice(selectContact, 1)
+    // console.log(updateContactAfterDelete)
+    // this.setState({})
+    /*---------------------use method filter-----------*/
+    const updateContactAfterDelete = this.state.contacts.filter(item => item.id !== selectContact)
+    //console.log(updateContactAfterDelete)
+    this.setState({
+      contacts: updateContactAfterDelete,
+    })
+  }
 
 
   render() {
@@ -73,7 +88,7 @@ export class App extends Component {
      <Title title="Phonebook">
         <Form onChangeInput={this.onChangeInput} onClickSubmit={this.onClickSubmit} />
       </Title> 
-      {this.state.contacts.length !== 0 ? <ContactList filterContacts={filterContacts} onChangeInput={this.onChangeInput} /> : ''}
+      {this.state.contacts.length !== 0 ? <ContactList filterContacts={filterContacts} onChangeInput={this.onChangeInput} handleClickDelete={this.handleClickDelete} /> : ''}
      
     </div>
   }
