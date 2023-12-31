@@ -30,12 +30,8 @@ export class App extends Component {
   
 
   onChangeInput = (event) => {
-   
-    // return this.setState({
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
-    //console.log(name.name)
-    // name: event.currentTarget.value,})
   }
 
   onClickSubmit = (event) => {
@@ -43,8 +39,8 @@ export class App extends Component {
     event.preventDefault(); 
 
     const { name } = this.state;
-    const isExist = this.state.contacts.findIndex(el => el.name === name);
-    console.log(isExist)
+    const isExist = this.state.contacts.findIndex(el => el.name.toLocaleLowerCase().trim() === name.toLocaleLowerCase().trim());
+    //console.log(isExist)
 
     if (isExist >= 0) {
       alert(`Contact ${name} already exists!`);
