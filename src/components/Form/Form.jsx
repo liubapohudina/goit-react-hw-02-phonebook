@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
-import styles from './form.module.css'
+import styles from './form.module.css';
+import PropTypes  from "prop-types";
 
 const Form = ({ onChangeInput,   onClickSubmit}) => {
     return (
@@ -18,3 +19,8 @@ const Form = ({ onChangeInput,   onClickSubmit}) => {
 
 
 export default Form;
+
+Form.propTypes = {
+    onChangeInput: PropTypes.func,
+    onClickSubmit: PropTypes.func,
+}

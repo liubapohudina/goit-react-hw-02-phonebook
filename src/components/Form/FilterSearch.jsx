@@ -1,4 +1,5 @@
 import styles from './form.module.css';
+import PropTypes  from "prop-types";
 
 const Filter = ({onChangeInput}) => {
     return (
@@ -10,3 +11,7 @@ const Filter = ({onChangeInput}) => {
 }
 
 export default Filter;
+
+Filter.propTypes = {
+    onChangeInput: PropTypes.func,
+}

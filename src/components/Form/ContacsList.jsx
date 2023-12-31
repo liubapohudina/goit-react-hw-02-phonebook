@@ -1,16 +1,17 @@
 import React from "react";
 import Title from "./Title";
 import Filter from "./FilterSearch";
-import styles from "./form.module.css"
+import styles from "./form.module.css";
+import PropTypes  from "prop-types";
 
 
 
 
 
-const ContactList = ({filterContacts, onChangeInput, handleClickDelete }) => {
+const ContactList = ({filterContacts, onChangeInput, onClickDelete }) => {
     const elements = filterContacts.map(item => <li className={styles.listContacts} key={item.id}>
         <p>{item.name}  {item.number}</p>
-        <button id={item.id} className={styles.btn} onClick={handleClickDelete} type="button">Delete</button> 
+        <button id={item.id} className={styles.btn} onClick={onClickDelete} type="button">Delete</button> 
     </li>)
     return (
         <div className="contactsList">
@@ -23,3 +24,9 @@ const ContactList = ({filterContacts, onChangeInput, handleClickDelete }) => {
 
 
 export default ContactList;
+
+ContactList.propTypes = {
+    filterContacts: PropTypes.array.isRequired,
+    onChangeInput: PropTypes.func,
+    onClickDelete: PropTypes.func,
+}

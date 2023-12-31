@@ -63,7 +63,7 @@ export class App extends Component {
     event.currentTarget.reset()
   }
   
-  handleClickDelete = (event) => {
+  onClickDelete = (event) => {
     const selectContact = event.currentTarget.id
     //console.log(selectContact)
     /*----------use method slice----------------*/
@@ -88,7 +88,7 @@ export class App extends Component {
      <Title title="Phonebook">
         <Form onChangeInput={this.onChangeInput} onClickSubmit={this.onClickSubmit} />
       </Title> 
-      {this.state.contacts.length !== 0 ? <ContactList filterContacts={filterContacts} onChangeInput={this.onChangeInput} handleClickDelete={this.handleClickDelete} /> : ''}
+      {this.state.contacts.length !== 0 ? <ContactList filterContacts={filterContacts} onChangeInput={this.onChangeInput} onClickDelete={this.onClickDelete} /> : ''}
      
     </div>
   }
