@@ -4,6 +4,7 @@ import Form from './Form/Form';
 import Title from "./Form/Title";
 
 import ContactList from "./Form/ContacsList";
+import Filter from "./Form/FilterSearch";
 
 
 
@@ -88,7 +89,10 @@ export class App extends Component {
      <Title title="Phonebook">
         <Form onChangeInput={this.onChangeInput} onClickSubmit={this.onClickSubmit} />
       </Title> 
+       {this.state.contacts.length !== 0 ? <Filter onChangeInput={this.onChangeInput} /> : ''}
       {this.state.contacts.length !== 0 ? <ContactList filterContacts={filterContacts} onChangeInput={this.onChangeInput} onClickDelete={this.onClickDelete} /> : ''}
+     
+      
      
     </div>
   }
