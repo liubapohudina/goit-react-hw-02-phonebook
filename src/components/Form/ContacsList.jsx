@@ -1,6 +1,4 @@
 import React from "react";
-import Title from "./Title";
-// import Filter from "./FilterSearch";
 import styles from "./form.module.css";
 import PropTypes  from "prop-types";
 
@@ -15,7 +13,6 @@ const ContactList = ({filterContacts, onClickDelete }) => {
     </li>)
     return (
         <div className="contactsList">
-             {/* <Filter onChangeInput={onChangeInput}/> */}
             <ul>{elements}</ul>
             </div>
     )
